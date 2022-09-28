@@ -19,10 +19,13 @@ function AppNavbar() {
           Reports
           <ul className={styles.reportDrop}>
             <li>Timesheets</li>
+            <hr />
             <li>Dashboard</li>
             <li>Project reports</li>
             <li>User Rrorts</li>
+            <hr />
             <li>Pace</li>
+            <hr />
             <li>Shared reports</li>
           </ul>
         </div>
@@ -31,8 +34,10 @@ function AppNavbar() {
           <ul className={styles.reportDrop}>
             <li>Team</li>
             <li>Work schedules</li>
+            <hr />
             <li>Clients</li>
             <li>Custome fields</li>
+            <hr />
             <li>Tracking policies</li>
             <li>Add-ons</li>
           </ul>

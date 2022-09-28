@@ -1,6 +1,6 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import Hours from "./Hours";
+import Hours from "./HoursPage";
 import Projects from "./Projects";
 
 function AllRoutes() {
