@@ -5,22 +5,29 @@ import { AiOutlinePlusCircle } from "react-icons/ai";
 import { BiDownload } from "react-icons/bi";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import styles from "./AppNavbar.module.css";
+import { Link, NavLink } from "react-router-dom";
 function AppNavbar() {
   return (
     <div>
       <div className={styles.mainDiv}>
         <ul>
-          <li>
-            <a>
-              <img
-                src="../Images/logo.png"
-                style={{ width: "170px", height: "23px" }}
-              />
-            </a>
+          <NavLink to="/">
+            <img
+              src="../Images/logo.png"
+              style={{ width: "170px", height: "23px" }}
+            />
+          </NavLink>
+          <NavLink to="/">Hours</NavLink>
+          <NavLink to="/projects">Projects</NavLink>
+          <li className={styles.dropdwon}>
+            Reports
+            <div className={styles.dropdowncontent}>
+              <Link>1</Link>
+              <Link>2</Link>
+              <Link>3</Link>
+              <Link>4</Link>
+            </div>
           </li>
-          <li>Hours</li>
-          <li>Projects</li>
-          <li>Reports</li>
           <li>Manage</li>
           <li>
             <FiSearch />
