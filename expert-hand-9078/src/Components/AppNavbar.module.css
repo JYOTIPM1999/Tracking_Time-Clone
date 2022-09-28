@@ -1,28 +1,64 @@
-.mainDiv {
+.sourceDiv {
   display: flex;
   justify-content: space-between;
-  border: 1px solid red;
+  /* border: 1px solid black; */
+  align-items: center;
+  /* height: 80px; */
 }
-.mainDiv > ul {
+.mainDiv1 {
+  padding-top: 20px;
+  width: 40%;
+  box-sizing: border-box;
+  align-items: center;
+  /* border: 1px solid red; */
+}
+.mainDiv1 ul {
   display: flex;
-  justify-content: space-around;
-  list-style: none;
+  justify-content: space-between;
+  padding: 0px;
+  height: 50px;
 }
-.mainDiv > ul > li {
-  margin-right: 30px;
+.mainDiv1 ul li {
+  float: left;
+  width: 250px;
+  list-style: none;
+  height: 70px;
+  line-height: 30px;
+  position: relative;
+}
+.mainDiv1 ul li ul {
+  display: none;
+}
+.mainDiv1 ul li ul li {
+  background-color: white;
+}
+.mainDiv1 > ul > li > ul > li {
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+.mainDiv1 ul li:hover > ul {
+  display: block;
 }
 
-.dropdown {
-  position: relative;
+/* maindiv2 */
+
+.mainDiv2 {
   display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 30%;
 }
-.dropdowncontent {
-  display: none;
-  /* display: flex; */
+
+.getPro {
+  border: 1px solid #04bda4;
+  color: #04bda4;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.reportDrop {
   position: absolute;
-  min-width: 300px;
-  z-index: 1;
-}
-.dropdown:hover .dropdowncontent {
-  display: block;
+  top: 70px;
+  left: -80px;
 }
