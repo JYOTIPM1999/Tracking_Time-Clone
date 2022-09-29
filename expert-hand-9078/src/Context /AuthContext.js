@@ -1,23 +1,60 @@
 import { createContext } from "react";
-import {createUserWithEmailAndPassword,signInWithEmailAndPassword,signOut,onAuthStateChanged} from "firebase/auth"
-import {auth} from "../firebase"
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+  onAuthStateChanged,
+} from "firebase/auth";
+//on auth state change to check if user is authenticated or not
+import { auth } from "../firebase";
+import { useContext } from "react";
+import { useEffect } from "react";
+import { useState } from "react";
+import {
+  GoogleAuthProvider,
+  signInWithPopup,
+  signInWithRedirect,
+} from "firebase/auth";
 
+const UserContext = createContext();
 
-const UserContext= createContext()
+export const AuthContextProvider = ({ children }) => {
+  const [user, setUser] = useState({});
+  const createUser = (email, password) => {
+    //    console.log(email,password)
+    return createUserWithEmailAndPassword(auth, email, password);
+  };
 
-export const AuthContextProvider=({children})=>{
- const createUser=(email,password)=>{
-      return createUserWithEmailAndPassword(auth,email,password)
- }
+  const signIn = (email, password) => {
+    return signInWithEmailAndPassword(auth, email, password);
+  };
 
+  const googleSignIn = () => {
+    const provider = new GoogleAuthProvider();
+    signInWithRedirect(auth, provider);
+  };
 
-    return(
-        <UserContext.Provider value={createUser}>
-            {children}
-        </UserContext.Provider>
-    )
-}
+  const logout = () => {
+    return signOut(auth);
+  };
 
-export const UserAuth=()=>{
-return UserContext(UserContext)
-}
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      console.log(currentUser);
+      setUser(currentUser);
+    });
+    return () => {
+      unsubscribe();
+    };
+  }, []);
+
+  return (
+    <UserContext.Provider value={{ createUser, user, logout, signIn,googleSignIn }}>
+      {children}
+    </UserContext.Provider>
+  );
+};
+
+export const UserAuth = () => {
+  return useContext(UserContext);
+};
