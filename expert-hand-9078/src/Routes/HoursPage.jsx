@@ -29,6 +29,7 @@ const localizer = dateFnsLocalizer({
 
 const todos = [
   {
+    id: Date.now(),
     title: "Big Meeting",
     // allDay: true,
     description:
@@ -48,9 +49,13 @@ function HoursPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setAllTodos([...allTodos, newTodo]);
+    let id = Date.now();
+    setAllTodos([...allTodos, { ...newTodo, id }]);
   };
-  console.log(allTodos[0].description);
+  const handleClick = (id) => {
+    setAllTodos(allTodos.filter((todo) => todo.id !== id));
+  };
+  console.log(allTodos);
   return (
     <div>
       {/* <div className={styles.timeBar}>
@@ -139,10 +144,10 @@ function HoursPage() {
           {allTodos.map((el) => {
             return (
               <div style={{ display: "flex" }}>
-                <div className={styles.showData} id="el.description">
+                <div className={styles.showData} key={el.id}>
                   {el.description}
                 </div>
-                <button>Delete</button>
+                <button onClick={() => handleClick(el.id)}>Delete</button>
               </div>
             );
           })}
