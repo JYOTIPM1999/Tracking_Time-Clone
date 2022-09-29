@@ -10,7 +10,7 @@ app.use(cors())
 app.use(express.json())
 app.use("/user",userRouter)
 app.use("/project",projectRouter)
-app.use("/project/task",taskRouter)
+app.use("/task",taskRouter)
 const connect=require("./config/db")
 
 app.listen(PORT,async()=>{
