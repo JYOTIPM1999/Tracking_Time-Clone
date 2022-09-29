@@ -132,7 +132,7 @@ function HoursPage() {
           events={allTodos}
           startAccessor="start"
           endAccessor="end"
-          // className={styles.calendarTag}
+          className={styles.calendarTag}
           style={{ height: 500, margin: "50px", width: "70%" }}
         />
         <div>
