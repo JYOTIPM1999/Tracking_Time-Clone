@@ -9,3 +9,32 @@
   align-items: center;
   background-color: #ebecee;
 }
+
+.formTag {
+  border: 2px solid teal;
+  border-radius: 10px;
+  padding: 20px;
+  background: rgb(203, 199, 199);
+  opacity: 0.7;
+  margin: auto;
+  width: 40%;
+}
+.inputTag {
+  width: 50%;
+  margin-right: 10px;
+  border: 1px solid black;
+}
+.datePickerTag {
+  width: 30%;
+  border: 1px solid black;
+}
+.todoTag {
+  display: flex;
+}
+.calendarTag {
+  width: 70%;
+}
+.showData {
+  border: 1px solid green;
+  margin-top: 10px;
+}
