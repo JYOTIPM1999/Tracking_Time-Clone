@@ -1,5 +1,5 @@
 const express=require("express")
-const PORT=8080;
+const PORT= process.env.PORT || 8080;
 const projectRouter=require("./features/project/project.router")
 const userRouter=require("./features/user/user.router")
 const taskRouter=require("./features/task/task.router")
