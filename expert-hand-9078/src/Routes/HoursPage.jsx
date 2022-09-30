@@ -32,8 +32,7 @@ const todos = [
     id: Date.now(),
     title: "Big Meeting",
     // allDay: true,
-    description:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi aspernatur a ipsa id dolorum molestiae natus architecto cum nobis nostrum doloribus repudiandae in, minima soluta aperiam harum debitis suscipit eius.",
+    description: "Just Fcuk off!.",
     start: new Date(2022, 8, 27),
     end: new Date(2022, 8, 29),
   },
@@ -46,6 +45,7 @@ function HoursPage() {
     end: "",
   });
   const [allTodos, setAllTodos] = useState(todos);
+  const [toggle, setToggle] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -147,6 +147,9 @@ function HoursPage() {
                 <div className={styles.showData} key={el.id}>
                   {el.description}
                 </div>
+                <button onClick={() => setToggle(!toggle)}>
+                  {toggle ? "NotDone" : "Done"}
+                </button>
                 <button onClick={() => handleDelete(el.id)}>Delete</button>
               </div>
             );
