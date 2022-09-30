@@ -5,13 +5,13 @@ import { AiOutlinePlusCircle } from "react-icons/ai";
 import { BiDownload } from "react-icons/bi";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import styles from "./AppNavbar.module.css";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 function AppNavbar() {
   return (
     <div className={styles.sourceDiv}>
       <div className={styles.mainDiv1}>
         <Link to="/">
-          <img src="../Images/logo.png" className={styles.logoImg} />
+          <img src="../Images/logo.png" className={styles.logoImg} alt="img" />
         </Link>
         <Link to="/">Hours</Link>
         <Link to="/projects">Projects</Link>

@@ -52,7 +52,7 @@ function HoursPage() {
     let id = Date.now();
     setAllTodos([...allTodos, { ...newTodo, id }]);
   };
-  const handleClick = (id) => {
+  const handleDelete = (id) => {
     setAllTodos(allTodos.filter((todo) => todo.id !== id));
   };
   console.log(allTodos);
@@ -147,7 +147,7 @@ function HoursPage() {
                 <div className={styles.showData} key={el.id}>
                   {el.description}
                 </div>
-                <button onClick={() => handleClick(el.id)}>Delete</button>
+                <button onClick={() => handleDelete(el.id)}>Delete</button>
               </div>
             );
           })}
