@@ -178,39 +178,7 @@ function HoursPage() {
         </div>
 
         <div className={styles.taskTag}>
-          {/* <table className={styles.table}>
-            <tr>
-              <th style={{ width: "15%" }}>Title</th>
-              <th style={{ width: "30%" }}>Desc</th>
-              <th style={{ width: "10%" }}>Start-Date</th>
-              <th style={{ width: "10%" }}>End-Date</th>
-              <th style={{ width: "10%" }}>Timer(in hrs.)</th>
-              <th style={{ width: "10%" }}>Toggle</th>
-              <th style={{ width: "10%" }}>Delete</th>
-            </tr>
-          </table> */}
-          {/* {allTodos.map((el) => {
-            // console.log(JSON.stringify(el.start).slice(1, 11));
-            return [
-              <table>
-                <tr>
-                  <td>{el.title}</td>
-                  <td>{el.description}</td>
-                  <td>{JSON.stringify(el.start).slice(1, 11)}</td>
-                  <td>{JSON.stringify(el.end).slice(1, 11)}</td>
-                  <td>{el.timer}</td>
-                  <td>
-                    <button onClick={() => handleToggle(el.id)}>
-                      {el.toggle ? "Not Done" : "Done"}
-                    </button>
-                  </td>
-                  <td>
-                    <button onClick={() => handleDelete(el.id)}>Delete</button>
-                  </td>
-                </tr>
-              </table>,
-            ];
-          })} */}
+          {/* console.log(JSON.stringify(el.start).slice(1, 11)); */}
           <table className={styles.table}>
             <tr>
               <th style={{ width: "15%" }}>Title</th>
@@ -231,9 +199,9 @@ function HoursPage() {
                 <td>
                   <button onClick={() => handleToggle(el.id, el.toggle)}>
                     {el.toggle ? (
-                      <BsToggle2Off color="red" />
-                    ) : (
                       <BsToggle2On color="green" />
+                    ) : (
+                      <BsToggle2Off color="red" />
                     )}
                   </button>
                 </td>
@@ -246,22 +214,6 @@ function HoursPage() {
             ))}
           </table>
         </div>
-
-        {/* <div className={styles.taskTag}>
-          {allTodos.map((el) => {
-            return (
-              <div style={{ display: "flex" }}>
-                <div className={styles.showData} key={el.id}>
-                  {el.title}
-                </div>
-                <button onClick={() => handleToggle(el.id)}>
-                  {el.toggle ? "NotDone" : "Done"}
-                </button>
-                <button onClick={() => handleDelete(el.id)}>Delete</button>
-              </div>
-            );
-          })}
-        </div> */}
       </div>
     </div>
   );
