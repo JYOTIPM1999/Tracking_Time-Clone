@@ -1,9 +1,13 @@
 import React from "react";
 import { Box, Flex, Image, Heading, Text } from "@chakra-ui/react";
 import AppsIntegration from "./Grids/AppsIntegrationGrid";
+import NavbarMain from "../Navbar,Footer/Navbar";
+import Footer from "../Navbar,Footer/Footer";
 
 const IntegrationsPage = () => {
   return (
+    <>
+    <NavbarMain/>
     <Box
       bgColor="#f6f8f9"
       w="100%"
@@ -125,6 +129,8 @@ const IntegrationsPage = () => {
       </Flex>
 
     </Box>
+    <Footer/>
+    </>
   );
 };
 
