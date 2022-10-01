@@ -2,10 +2,14 @@ import React from "react";
 
 import BlogsGrid from "./Grids/BlogsGrid";
 import { Image, Flex, Text, Heading, Box, Button } from "@chakra-ui/react";
+import NavbarMain from "../Navbar,Footer/Navbar";
+import Footer from "../Navbar,Footer/Footer";
+
 
 const BlogsPage = () => {
   return (
     <>
+    <NavbarMain/>
       <Flex
         direction="column"
         alignItems="center"
@@ -42,6 +46,7 @@ const BlogsPage = () => {
       </Flex>
 
       <BlogsGrid />
+      <Footer/>
     </>
   );
 };
