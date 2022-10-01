@@ -62,6 +62,7 @@ function HoursPage() {
     let id = Date.now();
     id = { ...newTodo, id };
     axios.post("http://jpxserverjson.herokuapp.com/posts", id);
+    getData();
   };
   // const handleDelete = (id) => {
   //   setAllTodos(allTodos.filter((todo) => todo.id !== id));
@@ -69,6 +70,7 @@ function HoursPage() {
 
   const handleDelete = (id) => {
     axios.delete(`http://jpxserverjson.herokuapp.com/posts/${id}`);
+    getData();
   };
 
   const getData = async () => {
@@ -92,6 +94,7 @@ function HoursPage() {
     axios.patch(`https://jpxserverjson.herokuapp.com/posts/${id}`, {
       toggle: !change,
     });
+    getData();
   };
   console.log(axiosData);
   // console.log(allTodos);
@@ -170,7 +173,7 @@ function HoursPage() {
         <div className={styles.calendarTag}>
           <Calendar
             localizer={localizer}
-            events={allTodos}
+            events={axiosData}
             startAccessor="start"
             endAccessor="end"
             style={{ height: 400 }}

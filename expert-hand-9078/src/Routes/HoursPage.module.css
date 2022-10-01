@@ -159,11 +159,13 @@
   }
   .calendarTag {
     width: 95%;
+    margin-left: 9px;
     font-size: 12px;
     margin-bottom: 10px;
   }
   .taskTag {
     width: 95%;
+    margin-left: 10px;
   }
   .table {
     font-size: 10px;
