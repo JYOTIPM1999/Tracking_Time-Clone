@@ -70,13 +70,20 @@
 .table {
   background-color: #ed565a;
   width: 100%;
-  border: 1px solid black;
+  border: 2px solid black;
   font-size: 15px;
 }
-
 .table th {
+  border: 2px solid black;
+}
+.table td {
   border: 1px solid black;
 }
+/*
+.table th {
+  border: 1px solid black;
+} */
+
 @media (min-width: 500px) and (max-width: 900px) {
   .head {
     font-size: 15px;

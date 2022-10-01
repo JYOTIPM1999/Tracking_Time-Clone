@@ -171,7 +171,7 @@ function HoursPage() {
         </div>
 
         <div className={styles.taskTag}>
-          <table className={styles.table}>
+          {/* <table className={styles.table}>
             <tr>
               <th style={{ width: "15%" }}>Title</th>
               <th style={{ width: "30%" }}>Desc</th>
@@ -181,7 +181,7 @@ function HoursPage() {
               <th style={{ width: "10%" }}>Toggle</th>
               <th style={{ width: "10%" }}>Delete</th>
             </tr>
-          </table>
+          </table> */}
           {/* {allTodos.map((el) => {
             // console.log(JSON.stringify(el.start).slice(1, 11));
             return [
@@ -204,29 +204,35 @@ function HoursPage() {
               </table>,
             ];
           })} */}
-
-          {axiosData.map((el) => {
-            // console.log(JSON.stringify(el.start).slice(1, 11));
-            return [
-              <table className={styles.table2}>
-                <tr>
-                  <td>{el.title}</td>
-                  <td>{el.description}</td>
-                  <td>{el.start}</td>
-                  <td>{el.end}</td>
-                  <td>{el.timer}</td>
-                  <td>
-                    <button onClick={() => handleToggle(el.id, el.toggle)}>
-                      {el.toggle ? "Not Done" : "Done"}
-                    </button>
-                  </td>
-                  <td>
-                    <button onClick={() => handleDelete(el.id)}>Delete</button>
-                  </td>
-                </tr>
-              </table>,
-            ];
-          })}
+          <table className={styles.table}>
+            <tr>
+              <th style={{ width: "15%" }}>Title</th>
+              <th style={{ width: "35%" }}>Desc</th>
+              <th style={{ width: "10%" }}>Start-Date</th>
+              <th style={{ width: "10%" }}>End-Date</th>
+              <th style={{ width: "10%" }}>Timer(in hrs.)</th>
+              <th style={{ width: "10%" }}>Toggle</th>
+              <th style={{ width: "10%" }}>Delete</th>
+            </tr>
+            {axiosData.map((el) => (
+              <tr>
+                <td>{el.title}</td>
+                <td>{el.description}</td>
+                <td>{el.start}</td>
+                <td>{el.end}</td>
+                <td>{el.timer}</td>
+                <td>
+                  <button onClick={() => handleToggle(el.id, el.toggle)}>
+                    {el.toggle ? "Not Done" : "Done"}
+                  </button>
+                </td>
+                <td>
+                  <button onClick={() => handleDelete(el.id)}>Delete</button>
+                </td>
+              </tr>
+            ))}
+          </table>
+          ,
         </div>
 
         {/* <div className={styles.taskTag}>
