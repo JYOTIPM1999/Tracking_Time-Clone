@@ -1,6 +1,7 @@
 const express=require("express")
 const User = require("../user/user.model")
 const Project=require("./project.model")
+const Task=require("../task/task.model")
 const app=express.Router()
 const authMiddlware= async(req,res,next)=>{
     let token=req.headers.token
@@ -10,7 +11,7 @@ const authMiddlware= async(req,res,next)=>{
     let [id,email, password]= token.split("+");
     let  currUser= await User.findById(id)
 
-    if(currUser.password===password){
+    if(currUser.email===email){
         req.userId=id;
         next()
     }
@@ -19,13 +20,9 @@ const authMiddlware= async(req,res,next)=>{
     }
     }
    
-    
-
-app.use(authMiddlware)
-
-app.get("/", async(req,res)=>{
+app.get("/",authMiddlware, async(req,res)=>{
     try{
-    let projects= await Project.find({userId:req.userId});
+    let projects= await Project.find({user:req.userId});
     res.send(projects)
     }
     catch(e){
@@ -33,7 +30,7 @@ app.get("/", async(req,res)=>{
     }
 })
 
-app.post("/",async(req,res)=>{
+app.post("/",authMiddlware,async(req,res)=>{
     let {title}=req.body
     
     try{
@@ -44,7 +41,7 @@ app.post("/",async(req,res)=>{
        
         let project = await Project.create({
             ...req.body,
-            userId:req.userId,
+            user:req.userId,
         })
         res.send({project})
     }
@@ -53,5 +50,11 @@ app.post("/",async(req,res)=>{
     }
 })
 
+app.delete("/:id",async(req,res)=>{
+    let {id}= req.params;
+    await Task.deleteMany({project:id});
+    await Project.findByIdAndDelete(id);
+    res.send("Data Deleted")
+})
 
 module.exports=app

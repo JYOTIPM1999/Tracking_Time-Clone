@@ -4,7 +4,6 @@ import {
     Box,
     Heading,
     Stack,
-    useColorModeValue,
     Image,
     SimpleGrid,
   } from "@chakra-ui/react";

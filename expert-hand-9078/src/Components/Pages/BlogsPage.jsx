@@ -1,7 +1,7 @@
 import React from "react";
 
 import BlogsGrid from "./Grids/BlogsGrid";
-import { Image, Flex, Text, Heading, Box } from "@chakra-ui/react";
+import { Image, Flex, Text, Heading, Box, Button } from "@chakra-ui/react";
 
 const BlogsPage = () => {
   return (
@@ -27,9 +27,18 @@ const BlogsPage = () => {
             layout={"fill"}
           />
         </Box>
-        <Heading as="h4" size="xl" m="15px 0">
+        <Heading as="h4" size="xl" m="15px 0 100px 0">
           Introducing Our Fresh New Look and Roadmap
         </Heading>
+        <Button 
+        colorScheme="white" 
+        p="0 30px"
+        border="2px solid"
+        fontSize="sm"
+        letterSpacing="2px"
+        variant="outline">
+          Read Article
+        </Button>
       </Flex>
 
       <BlogsGrid />
