@@ -11,30 +11,81 @@
 }
 
 .formTag {
-  border: 2px solid teal;
   border-radius: 10px;
   padding: 20px;
-  background: rgb(203, 199, 199);
   opacity: 0.7;
   margin: auto;
-  width: 40%;
+  width: 80%;
+}
+.formTag > form {
+  display: flex;
+  background: rgb(203, 199, 199);
+  border-radius: 10px;
+  padding: 20px;
+  border: 3px solid red;
+  justify-content: space-between;
+}
+.formTag > form > label {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
 }
 .inputTag {
-  width: 50%;
+  width: 300px;
+  padding: 5px;
+  border-radius: 5px;
   margin-right: 10px;
   border: 1px solid black;
 }
 .datePickerTag {
-  width: 30%;
+  padding: 5px;
+  border-radius: 5px;
+  width: 100px;
   border: 1px solid black;
+}
+.selectTag {
+  padding: 5px;
+  border-radius: 5px;
+  width: 150px;
+  height: 35px;
+}
+.logs {
+  padding: 5px;
+  /* border: 3px solid #ed565a; */
 }
 .todoTag {
   display: flex;
+  gap: 3%;
 }
 .calendarTag {
-  width: 70%;
+  border: 2px solid grey;
+  background-color: #ed565a;
+  height: 410px;
+  width: 35%;
+  padding: 5px;
+  border-radius: 10px;
 }
-.showData {
+.taskTag {
+  width: 55%;
+}
+.table {
+  background-color: #ed565a;
+  width: 100%;
+  border: 1px solid black;
+  font-size: 15px;
+}
+/* .table2 {
+  background-color: #df7a7d;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+  border: 1px solid black;
+} */
+.table th {
+  border: 1px solid black;
+}
+
+/* .showData {
   border: 1px solid green;
   margin-top: 10px;
-}
+} */
