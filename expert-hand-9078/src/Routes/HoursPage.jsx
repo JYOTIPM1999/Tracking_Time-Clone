@@ -38,6 +38,18 @@ const localizer = dateFnsLocalizer({
 // };
 
 function HoursPage() {
+  // const { user, logout } = UserAuth();
+  // const nav = useNavigate();
+
+  // const handlelogout = async () => {
+  //   try {
+  //     await logout();
+  //     nav("/signin");
+  //   } catch (e) {
+  //     console.log(e.message);
+  //   }
+  // };
+
   const [newTodo, setNewTodo] = useState({
     title: "",
     description: "",
@@ -46,6 +58,7 @@ function HoursPage() {
     timer: "",
     toggle: false,
   });
+
   const [allTodos, setAllTodos] = useState([]);
   const [axiosData, setAxiosData] = useState([]);
   const handleChange = (e) => {
@@ -59,10 +72,19 @@ function HoursPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    let id = Date.now();
-    id = { ...newTodo, id };
-    axios.post("http://jpxserverjson.herokuapp.com/posts", id);
-    getData();
+    if (
+      newTodo.title &&
+      newTodo.description &&
+      newTodo.start &&
+      newTodo.end &&
+      newTodo.timer &&
+      newTodo.toggle
+    ) {
+      let id = Date.now();
+      id = { ...newTodo, id };
+      axios.post("http://jpxserverjson.herokuapp.com/posts", id);
+      getData();
+    }
   };
   // const handleDelete = (id) => {
   //   setAllTodos(allTodos.filter((todo) => todo.id !== id));
@@ -101,6 +123,7 @@ function HoursPage() {
 
   return (
     <div>
+      {/* <Button onClick={handlelogout}>Logout</Button> */}
       <div className={styles.formTag}>
         <h1 className={styles.head}>Add Task</h1>
         <form
@@ -193,7 +216,7 @@ function HoursPage() {
               <th style={{ width: "10%" }}>Delete</th>
             </tr>
             {axiosData.map((el) => (
-              <tr style={{ fontWeight: "500" }}>
+              <tr style={{ fontWeight: "500" }} key={el.id}>
                 <td>{el.title}</td>
                 <td>{el.description}</td>
                 <td>{moment(el.start).utc().format("YYYY-MM-DD")}</td>
