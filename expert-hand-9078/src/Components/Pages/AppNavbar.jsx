@@ -48,8 +48,8 @@ function AppNavbar() {
       </div>
 
       <div className={styles.mainDiv2}>
-        <AiFillPlayCircle size={28} />
-        <AiOutlinePlusCircle size={23} />
+        <AiFillPlayCircle size={28} className={styles.playIcon} />
+        <AiOutlinePlusCircle size={23} className={styles.plusIcon} />
         <div className={styles.getPro}>GET PRO</div>
         <div className={styles.downloadIcon}>
           <BiDownload />
@@ -59,7 +59,11 @@ function AppNavbar() {
         </div>
         <div className={styles.deleteIcon}>
           Delete from Data
-          <RiDeleteBin6Line size={15} color="brown" />
+          <RiDeleteBin6Line
+            size={15}
+            color="brown"
+            className={styles.deleteIcons}
+          />
         </div>
         <div>
           <img

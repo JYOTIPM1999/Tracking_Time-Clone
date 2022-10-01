@@ -83,7 +83,7 @@ function HoursPage() {
   //   );
   //   setAllTodos(newData);
   // };
-  
+
   const handleToggle = (id, change) => {
     axios.patch(`https://jpxserverjson.herokuapp.com/posts/${id}`, {
       toggle: !change,
@@ -95,13 +95,13 @@ function HoursPage() {
   return (
     <div>
       <div className={styles.formTag}>
-        Add Task
+        <h1 className={styles.head}>Add Task</h1>
         <form onSubmit={handleSubmit} style={{ display: "flex" }}>
           <label>
             Add title
             <input
               type="text"
-              placeholder="Add Title"
+              // placeholder="Add Title"
               className={styles.inputTag}
               value={newTodo.title}
               onChange={(e) =>
@@ -113,7 +113,7 @@ function HoursPage() {
             Add description
             <input
               type="text"
-              placeholder="Add Desc"
+              // placeholder="Add Desc"
               className={styles.inputTag}
               value={newTodo.description}
               onChange={(e) =>
@@ -124,7 +124,7 @@ function HoursPage() {
           <label>
             Start Date
             <DatePicker
-              placeholderText="Start Date"
+              // placeholderText="Start Date"
               className={styles.datePickerTag}
               selected={newTodo.start}
               onChange={(start) => setNewTodo({ ...newTodo, start })}
@@ -133,7 +133,7 @@ function HoursPage() {
           <label>
             Start End
             <DatePicker
-              placeholderText="End Date"
+              // placeholderText="End Date"
               className={styles.datePickerTag}
               selected={newTodo.end}
               onChange={(end) => setNewTodo({ ...newTodo, end })}
@@ -208,7 +208,7 @@ function HoursPage() {
           {axiosData.map((el) => {
             // console.log(JSON.stringify(el.start).slice(1, 11));
             return [
-              <table>
+              <table className={styles.table2}>
                 <tr>
                   <td>{el.title}</td>
                   <td>{el.description}</td>

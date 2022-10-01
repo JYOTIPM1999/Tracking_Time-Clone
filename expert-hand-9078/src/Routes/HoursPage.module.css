@@ -1,4 +1,4 @@
-.timeBar {
+/* .timeBar {
   display: flex;
   justify-content: space-between;
 }
@@ -8,7 +8,7 @@
   font-size: 12px;
   align-items: center;
   background-color: #ebecee;
-}
+} */
 
 .formTag {
   border-radius: 10px;
@@ -51,7 +51,6 @@
 }
 .logs {
   padding: 5px;
-  /* border: 3px solid #ed565a; */
 }
 .todoTag {
   display: flex;
@@ -74,18 +73,92 @@
   border: 1px solid black;
   font-size: 15px;
 }
-/* .table2 {
-  background-color: #df7a7d;
-  width: 100%;
-  box-sizing: border-box;
-  overflow-wrap: break-word;
-  border: 1px solid black;
-} */
+
 .table th {
   border: 1px solid black;
 }
-
-/* .showData {
-  border: 1px solid green;
-  margin-top: 10px;
-} */
+@media (min-width: 500px) and (max-width: 900px) {
+  .head {
+    font-size: 15px;
+  }
+  .formTag > form > label {
+    font-size: 12px;
+  }
+  .inputTag {
+    width: 100px;
+    padding: 3px;
+  }
+  .datePickerTag {
+    padding: 3px;
+    width: 70px;
+  }
+  .selectTag {
+    padding: 3px;
+    width: 100px;
+    height: 25px;
+  }
+  .calendarTag {
+    width: 45%;
+    padding: 3px;
+  }
+  .taskTag {
+    width: 50%;
+  }
+  .table {
+    font-size: 12px;
+  }
+  .table2 td {
+    font-size: 12px;
+  }
+  .logs {
+    padding: 3px;
+    font-size: 12px;
+  }
+}
+@media (max-width: 499px) {
+  .head {
+    font-size: 12px;
+  }
+  .formTag {
+    width: 95%;
+    padding: 2px;
+    margin: auto;
+  }
+  .formTag > form > label {
+    font-size: 9px;
+  }
+  .inputTag {
+    width: 100%;
+    padding: 3px;
+  }
+  .datePickerTag {
+    width: 80%;
+    padding: 3px;
+  }
+  .selectTag {
+    padding: 2px;
+    width: 85%;
+    height: 20px;
+  }
+  .todoTag {
+    display: block;
+  }
+  .calendarTag {
+    width: 95%;
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+  .taskTag {
+    width: 95%;
+  }
+  .table {
+    font-size: 10px;
+  }
+  .table2 td {
+    font-size: 10px;
+  }
+  .logs {
+    padding: 2px;
+    font-size: 8px;
+  }
+}
