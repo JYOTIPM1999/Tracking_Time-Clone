@@ -5,6 +5,7 @@ import { Image, Flex, Text, Heading, Box, Button } from "@chakra-ui/react";
 import NavbarMain from "../Navbar,Footer/Navbar";
 import Footer from "../Navbar,Footer/Footer";
 
+
 const BlogsPage = () => {
   return (
     <>
