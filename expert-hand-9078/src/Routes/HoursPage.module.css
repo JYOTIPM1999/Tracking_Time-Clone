@@ -1,19 +1,10 @@
-/* .timeBar {
-  display: flex;
-  justify-content: space-between;
+.head {
+  font-weight: bold;
 }
-.monthBar {
-  border: 1px solid black;
-  padding: 5px;
-  font-size: 12px;
-  align-items: center;
-  background-color: #ebecee;
-} */
-
 .formTag {
   border-radius: 10px;
   padding: 20px;
-  opacity: 0.7;
+  /* opacity: 0.7; */
   margin: auto;
   width: 80%;
 }
@@ -22,7 +13,8 @@
   background: rgb(203, 199, 199);
   border-radius: 10px;
   padding: 20px;
-  border: 3px solid red;
+  border: 3px solid black;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   justify-content: space-between;
 }
 .formTag > form > label {
@@ -48,6 +40,7 @@
   border-radius: 5px;
   width: 150px;
   height: 35px;
+  background-color: whitesmoke;
 }
 .logs {
   padding: 5px;
@@ -58,9 +51,10 @@
 }
 .calendarTag {
   border: 2px solid grey;
-  background-color: #ed565a;
+  background-color: whitesmoke;
   height: 410px;
   width: 35%;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   padding: 5px;
   border-radius: 10px;
 }
@@ -68,16 +62,29 @@
   width: 55%;
 }
 .table {
-  background-color: #ed565a;
+  background-color: whitesmoke;
   width: 100%;
   border: 2px solid black;
   font-size: 15px;
 }
 .table th {
   border: 2px solid black;
+  background-color: gray;
 }
 .table td {
   border: 1px solid black;
+}
+.logs {
+  padding: 3px;
+  margin-top: 20px;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 10px;
+  font-weight: bold;
+  border: 1px solid black;
+}
+.logs:hover {
+  background-color: whitesmoke;
 }
 /*
 .table th {
@@ -132,19 +139,19 @@
     margin: auto;
   }
   .formTag > form > label {
-    font-size: 9px;
+    font-size: 8px;
   }
   .inputTag {
-    width: 100%;
+    width: 90%;
     padding: 3px;
   }
   .datePickerTag {
-    width: 80%;
+    width: 70%;
     padding: 3px;
   }
   .selectTag {
     padding: 2px;
-    width: 85%;
+    width: 75%;
     height: 20px;
   }
   .todoTag {

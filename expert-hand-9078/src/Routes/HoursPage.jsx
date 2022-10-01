@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from "react";
 import styles from "./HoursPage.module.css";
 import axios from "axios";
+import moment from "moment";
+import { AiFillDelete } from "react-icons/ai";
+import { BsToggle2Off } from "react-icons/bs";
+import { BsToggle2On } from "react-icons/bs";
+import { ImBoxAdd } from "react-icons/im";
 // Calendar
 import format from "date-fns/format";
 import getDay from "date-fns/getDay";
@@ -22,15 +27,15 @@ const localizer = dateFnsLocalizer({
   locales,
 });
 
-const todos = {
-  id: Date.now(),
-  title: "Meeting",
-  description: "It's working",
-  start: new Date(2022, 8, 27),
-  end: new Date(2022, 8, 29),
-  timer: 1,
-  toggle: false,
-};
+// const todos = {
+//   id: Date.now(),
+//   title: "Meeting",
+//   description: "It's working",
+//   start: new Date(2022, 8, 27),
+//   end: new Date(2022, 8, 29),
+//   timer: 1,
+//   toggle: false,
+// };
 
 function HoursPage() {
   const [newTodo, setNewTodo] = useState({
@@ -56,7 +61,6 @@ function HoursPage() {
     e.preventDefault();
     let id = Date.now();
     id = { ...newTodo, id };
-    // console.log(id);
     axios.post("http://jpxserverjson.herokuapp.com/posts", id);
   };
   // const handleDelete = (id) => {
@@ -96,7 +100,10 @@ function HoursPage() {
     <div>
       <div className={styles.formTag}>
         <h1 className={styles.head}>Add Task</h1>
-        <form onSubmit={handleSubmit} style={{ display: "flex" }}>
+        <form
+          onSubmit={handleSubmit}
+          style={{ display: "flex", alignItems: "center" }}
+        >
           <label>
             Add title
             <input
@@ -155,7 +162,7 @@ function HoursPage() {
             </select>
           </label>
           <button type="submit" className={styles.logs}>
-            Logs
+            <ImBoxAdd />
           </button>
         </form>
       </div>
@@ -215,24 +222,29 @@ function HoursPage() {
               <th style={{ width: "10%" }}>Delete</th>
             </tr>
             {axiosData.map((el) => (
-              <tr>
+              <tr style={{ fontWeight: "500" }}>
                 <td>{el.title}</td>
                 <td>{el.description}</td>
-                <td>{el.start}</td>
-                <td>{el.end}</td>
+                <td>{moment(el.start).utc().format("YYYY-MM-DD")}</td>
+                <td>{moment(el.end).utc().format("YYYY-MM-DD")}</td>
                 <td>{el.timer}</td>
                 <td>
                   <button onClick={() => handleToggle(el.id, el.toggle)}>
-                    {el.toggle ? "Not Done" : "Done"}
+                    {el.toggle ? (
+                      <BsToggle2Off color="red" />
+                    ) : (
+                      <BsToggle2On color="green" />
+                    )}
                   </button>
                 </td>
                 <td>
-                  <button onClick={() => handleDelete(el.id)}>Delete</button>
+                  <button onClick={() => handleDelete(el.id)}>
+                    <AiFillDelete />
+                  </button>
                 </td>
               </tr>
             ))}
           </table>
-          ,
         </div>
 
         {/* <div className={styles.taskTag}>
