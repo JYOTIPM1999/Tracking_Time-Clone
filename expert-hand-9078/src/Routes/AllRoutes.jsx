@@ -9,6 +9,8 @@ import SignUp from "../Components/SignUp/SignUp";
 import Hours from "./HoursPage";
 import RestrictedRoute from "./RestrictedRoutes";
 
+
+
 function AllRoutes() {
   return (
     <Routes>
@@ -16,6 +18,7 @@ function AllRoutes() {
           <Route path="/signin" element={<SignIn/>}/>
           <Route path="/signup" element={<SignUp/>}/>
           {/* <Route path="/account" element={<RestrictedRoute><Account/></RestrictedRoute>}/> */}
+          
       <Route path="/account" element={<RestrictedRoute><Hours /></RestrictedRoute>} />
       <Route 
       path="/integrations"
