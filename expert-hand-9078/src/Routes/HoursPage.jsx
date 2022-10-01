@@ -5,8 +5,10 @@ import styles from "./HoursPage.module.css";
 // import { BsCalendarMonth } from "react-icons/bs";
 // import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 // import { AiOutlineQuestionCircle } from "react-icons/ai";
+import {useNavigate } from 'react-router-dom'
 
 // Calendar
+
 import format from "date-fns/format";
 import getDay from "date-fns/getDay";
 import parse from "date-fns/parse";
@@ -15,6 +17,8 @@ import { Calendar, dateFnsLocalizer } from "react-big-calendar";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { UserAuth } from "../Components/RequiredAuth/Context /AuthContext";
+import { Button } from "@chakra-ui/react";
 
 const locales = {
   "en-IN": require("date-fns/locale/en-US"),
@@ -39,6 +43,7 @@ const todos = [
   },
 ];
 function HoursPage() {
+
   const [newTodo, setNewTodo] = useState({
     title: "",
     description: "",
@@ -46,6 +51,19 @@ function HoursPage() {
     end: "",
   });
   const [allTodos, setAllTodos] = useState(todos);
+  const {user,logout}= UserAuth()
+    const nav= useNavigate()
+
+    // const handlelogout= async ()=>{
+    //      try{
+    //          await logout()
+    //          nav("/signin")
+
+    //      }
+    //      catch(e){
+    //           console.log(e.message)
+    //      }
+    // }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -57,7 +75,14 @@ function HoursPage() {
   };
   console.log(allTodos);
   return (
+    
     <div>
+      {/* //User Data */}
+        {/* <p>User Mail:{user && user.email}</p>
+        <p>Token: {user && user.uid}</p>
+        <Button onClick={handlelogout}>Logout</Button> */}
+   {/* //User Data */}
+
       {/* <div className={styles.timeBar}>
         <div className={styles.monthBar}>
           <button>
