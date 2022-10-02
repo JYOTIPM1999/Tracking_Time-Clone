@@ -10,26 +10,24 @@ import SignUp from "../Components/SignUp/SignUp";
 
 import RestrictedRoute from "./RestrictedRoutes";
 
-
-
 function AllRoutes() {
   return (
     <Routes>
-     <Route path="/" element={<Homepage/>}/>
-          <Route path="/signin" element={<SignIn/>}/>
-          <Route path="/signup" element={<SignUp/>}/>
-          {/* <Route path="/account" element={<RestrictedRoute><Account/></RestrictedRoute>}/> */}
-          
-      <Route path="/account" element={<RestrictedRoute><HoursPage/></RestrictedRoute>} />
-      <Route 
-      path="/integrations"
-      element={<IntegrationsPage />}
-      />
-      <Route 
-      path="/blogs"
-      element={<BlogsPage />}
-      />
+      <Route path="/" element={<Homepage />} />
+      <Route path="/signin" element={<SignIn />} />
+      <Route path="/signup" element={<SignUp />} />
+      {/* <Route path="/account" element={<RestrictedRoute><Account/></RestrictedRoute>}/> */}
 
+      <Route
+        path="/account"
+        element={
+          <RestrictedRoute>
+            <HoursPage />
+          </RestrictedRoute>
+        }
+      />
+      <Route path="/integrations" element={<IntegrationsPage />} />
+      <Route path="/blogs" element={<BlogsPage />} />
     </Routes>
   );
 }

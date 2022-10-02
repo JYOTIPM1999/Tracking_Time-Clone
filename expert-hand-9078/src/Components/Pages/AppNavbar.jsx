@@ -5,8 +5,20 @@ import { AiOutlinePlusCircle } from "react-icons/ai";
 import { BiDownload } from "react-icons/bi";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import styles from "./AppNavbar.module.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { Button } from "@chakra-ui/react";
+import { UserAuth } from "../RequiredAuth/Context /AuthContext";
 function AppNavbar() {
+  const {user,logout}= UserAuth()
+  const nav= useNavigate()
+const handlelogout = async () => {
+    try {
+      await logout();
+      nav("/signin");
+    } catch (e) {
+      console.log(e.message);
+    }
+  };
   return (
     <div className={styles.sourceDiv}>
       <div className={styles.mainDiv1}>
@@ -58,20 +70,23 @@ function AppNavbar() {
           </div>
         </div>
         <div className={styles.deleteIcon}>
-          Delete from Data
+          <p>{user && user.email}</p>
+          {/* Delete from Data
           <RiDeleteBin6Line
             size={15}
             color="brown"
             className={styles.deleteIcons}
-          />
+          /> */}
         </div>
-        <div>
+       <button className={styles.logout} onClick={handlelogout}>LOGOUT</button>
+      {/* // <p>User Mail:{user && user.email}</p> */}
+        {/* <div>
           <img
             src="http://drive.google.com/uc?export=view&id=12HT3xBQpjAS87a3ThBcbuIVq0S7VK_il"
             alt="personImg"
             className={styles.profileImg}
           />
-        </div>
+        </div> */}
       </div>
     </div>
   );

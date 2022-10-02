@@ -18,7 +18,7 @@ export default function SignIn() {
  
 
     const navigate= useNavigate()
-    const {googleSignIn,signIn}= UserAuth()
+    const {googleSignIn,signIn, user}= UserAuth()
 
 const handleSubmit=async(e)=>{
         e.preventDefault();
@@ -59,7 +59,9 @@ const handleSubmit=async(e)=>{
             draggable: true,
             progress: undefined,
             });
+            console.log(user)
           navigate("/account")
+
         } 
         catch (e) {
           toast.error('Wrong Credentials', {
@@ -88,6 +90,7 @@ const handleSubmit=async(e)=>{
             draggable: true,
             progress: undefined,
             });
+            console.log(user)
           navigate("/account")
         } 
         catch (e) {

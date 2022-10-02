@@ -15,6 +15,9 @@ import { Calendar, dateFnsLocalizer } from "react-big-calendar";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import AppNavbar from "../Components/Pages/AppNavbar";
+import Footer from "../Components/Navbar,Footer/Footer";
+
 
 const locales = {
   "en-IN": require("date-fns/locale/en-US"),
@@ -27,29 +30,7 @@ const localizer = dateFnsLocalizer({
   locales,
 });
 
-// const todos = {
-//   id: Date.now(),
-//   title: "Meeting",
-//   description: "It's working",
-//   start: new Date(2022, 8, 27),
-//   end: new Date(2022, 8, 29),
-//   timer: 1,
-//   toggle: false,
-// };
-
 function HoursPage() {
-  // const { user, logout } = UserAuth();
-  // const nav = useNavigate();
-
-  // const handlelogout = async () => {
-  //   try {
-  //     await logout();
-  //     nav("/signin");
-  //   } catch (e) {
-  //     console.log(e.message);
-  //   }
-  // };
-
   const [newTodo, setNewTodo] = useState({
     title: "",
     description: "",
@@ -64,11 +45,6 @@ function HoursPage() {
   const handleChange = (e) => {
     setNewTodo({ ...newTodo, timer: +e.target.value });
   };
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   let id = Date.now();
-  //   setAllTodos([...allTodos, { ...newTodo, id }]);
-  // };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -83,12 +59,9 @@ function HoursPage() {
       let id = Date.now();
       id = { ...newTodo, id };
       axios.post("http://jpxserverjson.herokuapp.com/posts", id);
-      getData();
+      // getData();
     }
   };
-  // const handleDelete = (id) => {
-  //   setAllTodos(allTodos.filter((todo) => todo.id !== id));
-  // };
 
   const handleDelete = (id) => {
     axios.delete(`http://jpxserverjson.herokuapp.com/posts/${id}`);
@@ -104,14 +77,6 @@ function HoursPage() {
     getData();
   }, []);
 
-  // const handleToggle = (id) => {
-  //   console.log(id);
-  //   let newData = allTodos.map((el) =>
-  //     el.id === id ? { ...el, toggle: !el.toggle } : el
-  //   );
-  //   setAllTodos(newData);
-  // };
-
   const handleToggle = (id, change) => {
     axios.patch(`https://jpxserverjson.herokuapp.com/posts/${id}`, {
       toggle: !change,
@@ -123,7 +88,7 @@ function HoursPage() {
 
   return (
     <div>
-      {/* <Button onClick={handlelogout}>Logout</Button> */}
+      <AppNavbar/>
       <div className={styles.formTag}>
         <h1 className={styles.head}>Add Task</h1>
         <form
@@ -235,12 +200,15 @@ function HoursPage() {
                   <button onClick={() => handleDelete(el.id)}>
                     <AiFillDelete />
                   </button>
+                     
                 </td>
               </tr>
             ))}
           </table>
         </div>
       </div>
+      <div style={{marginTop:"1rem"}}><Footer/></div>
+      
     </div>
   );
 }

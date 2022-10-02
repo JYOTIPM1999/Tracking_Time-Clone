@@ -114,7 +114,29 @@
   align-items: center;
   gap: 10px;
 }
+.logout {
+  background-color: #04bda4;
+  color: white;
+  border-radius: 10px;
+  font-size: 10px;
+  font-weight: 500;
+  padding: 5px;
+  border: 2px solid black;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.logout:hover {
+  background-color: aliceblue;
+  color: black;
+}
+
+
+
 @media (min-width: 500px) and (max-width: 900px) {
+  .logout {
+    padding: 3px;
+    font-size: 10px;
+    border: 1px solid black;
+  }
   .logoImg {
     width: 80px;
     height: 20px;
@@ -137,6 +159,11 @@
 }
 
 @media (max-width: 499px) {
+  .logout {
+    padding: 3px;
+    font-size: 8px;
+    border: 1px solid black;
+  }
   .sourceDiv {
     width: 90%;
   }
@@ -202,3 +229,4 @@
     display: none;
   }
 } ;
+
