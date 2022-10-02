@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./HoursPage.module.css";
-// import { MdOutlineKeyboardArrowLeft } from "react-icons/md";
-// import { MdOutlineKeyboardArrowRight } from "react-icons/md";
-// import { BsCalendarMonth } from "react-icons/bs";
-// import { MdOutlineKeyboardArrowDown } from "react-icons/md";
-// import { AiOutlineQuestionCircle } from "react-icons/ai";
-
+import axios from "axios";
+import moment from "moment";
+import { AiFillDelete } from "react-icons/ai";
+import { BsToggle2Off } from "react-icons/bs";
+import { BsToggle2On } from "react-icons/bs";
+import { ImBoxAdd } from "react-icons/im";
 // Calendar
 import format from "date-fns/format";
 import getDay from "date-fns/getDay";
@@ -27,130 +27,218 @@ const localizer = dateFnsLocalizer({
   locales,
 });
 
-const todos = [
-  {
-    id: Date.now(),
-    title: "Big Meeting",
-    // allDay: true,
-    description:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi aspernatur a ipsa id dolorum molestiae natus architecto cum nobis nostrum doloribus repudiandae in, minima soluta aperiam harum debitis suscipit eius.",
-    start: new Date(2022, 8, 27),
-    end: new Date(2022, 8, 29),
-  },
-];
+// const todos = {
+//   id: Date.now(),
+//   title: "Meeting",
+//   description: "It's working",
+//   start: new Date(2022, 8, 27),
+//   end: new Date(2022, 8, 29),
+//   timer: 1,
+//   toggle: false,
+// };
+
 function HoursPage() {
+  // const { user, logout } = UserAuth();
+  // const nav = useNavigate();
+
+  // const handlelogout = async () => {
+  //   try {
+  //     await logout();
+  //     nav("/signin");
+  //   } catch (e) {
+  //     console.log(e.message);
+  //   }
+  // };
+
   const [newTodo, setNewTodo] = useState({
     title: "",
     description: "",
     start: "",
     end: "",
+    timer: "",
+    toggle: false,
   });
-  const [allTodos, setAllTodos] = useState(todos);
+
+  const [allTodos, setAllTodos] = useState([]);
+  const [axiosData, setAxiosData] = useState([]);
+  const handleChange = (e) => {
+    setNewTodo({ ...newTodo, timer: +e.target.value });
+  };
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   let id = Date.now();
+  //   setAllTodos([...allTodos, { ...newTodo, id }]);
+  // };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    let id = Date.now();
-    setAllTodos([...allTodos, { ...newTodo, id }]);
+    if (
+      newTodo.title &&
+      newTodo.description &&
+      newTodo.start &&
+      newTodo.end &&
+      newTodo.timer &&
+      newTodo.toggle
+    ) {
+      let id = Date.now();
+      id = { ...newTodo, id };
+      axios.post("http://jpxserverjson.herokuapp.com/posts", id);
+      getData();
+    }
   };
+  // const handleDelete = (id) => {
+  //   setAllTodos(allTodos.filter((todo) => todo.id !== id));
+  // };
+
   const handleDelete = (id) => {
-    setAllTodos(allTodos.filter((todo) => todo.id !== id));
+    axios.delete(`http://jpxserverjson.herokuapp.com/posts/${id}`);
+    getData();
   };
-  console.log(allTodos);
+
+  const getData = async () => {
+    let res = await axios.get("http://jpxserverjson.herokuapp.com/posts");
+    setAxiosData(res.data);
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  // const handleToggle = (id) => {
+  //   console.log(id);
+  //   let newData = allTodos.map((el) =>
+  //     el.id === id ? { ...el, toggle: !el.toggle } : el
+  //   );
+  //   setAllTodos(newData);
+  // };
+
+  const handleToggle = (id, change) => {
+    axios.patch(`https://jpxserverjson.herokuapp.com/posts/${id}`, {
+      toggle: !change,
+    });
+    getData();
+  };
+  console.log(axiosData);
+  // console.log(allTodos);
+
   return (
     <div>
-      {/* <div className={styles.timeBar}>
-        <div className={styles.monthBar}>
-          <button>
-            <MdOutlineKeyboardArrowLeft />
-          </button>
-          <button>Sep 2022</button>
-          <button>
-            <MdOutlineKeyboardArrowRight />
-          </button>
-        </div>
-
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            width: "10%",
-          }}
-        >
-          <AiOutlineQuestionCircle />
-          <button style={{ display: "flex" }}>
-            <BsCalendarMonth />
-            Day
-            <MdOutlineKeyboardArrowDown />
-          </button>
-          <div
-            style={{
-              backgroundColor: "black",
-              padding: "7px",
-              borderRadius: "5px",
-            }}
-          >
-            <img
-              style={{ height: "15px", width: "15px" }}
-              src="https://cdn-icons-png.flaticon.com/512/3349/3349622.png"
-              alt=""
-            />
-          </div>
-        </div>
-      </div> */}
+      {/* <Button onClick={handlelogout}>Logout</Button> */}
       <div className={styles.formTag}>
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            placeholder="Add Title"
-            className={styles.inputTag}
-            value={newTodo.title}
-            onChange={(e) => setNewTodo({ ...newTodo, title: e.target.value })}
-          />
-          <br />
-          <input
-            type="text"
-            placeholder="Add Desc"
-            className={styles.inputTag}
-            value={newTodo.description}
-            onChange={(e) =>
-              setNewTodo({ ...newTodo, description: e.target.value })
-            }
-          />
-          <DatePicker
-            placeholderText="Start Date"
-            className={styles.datePickerTag}
-            selected={newTodo.start}
-            onChange={(start) => setNewTodo({ ...newTodo, start })}
-          />
-          <DatePicker
-            placeholderText="End Date"
-            className={styles.datePickerTag}
-            selected={newTodo.end}
-            onChange={(end) => setNewTodo({ ...newTodo, end })}
-          />
-          <input type="submit" value="Logs" />
+        <h1 className={styles.head}>Add Task</h1>
+        <form
+          onSubmit={handleSubmit}
+          style={{ display: "flex", alignItems: "center" }}
+        >
+          <label>
+            Add title
+            <input
+              type="text"
+              // placeholder="Add Title"
+              className={styles.inputTag}
+              value={newTodo.title}
+              onChange={(e) =>
+                setNewTodo({ ...newTodo, title: e.target.value })
+              }
+            />
+          </label>
+          <label>
+            Add description
+            <input
+              type="text"
+              // placeholder="Add Desc"
+              className={styles.inputTag}
+              value={newTodo.description}
+              onChange={(e) =>
+                setNewTodo({ ...newTodo, description: e.target.value })
+              }
+            />
+          </label>
+          <label>
+            Start Date
+            <DatePicker
+              // placeholderText="Start Date"
+              className={styles.datePickerTag}
+              selected={newTodo.start}
+              onChange={(start) => setNewTodo({ ...newTodo, start })}
+            />
+          </label>
+          <label>
+            Start End
+            <DatePicker
+              // placeholderText="End Date"
+              className={styles.datePickerTag}
+              selected={newTodo.end}
+              onChange={(end) => setNewTodo({ ...newTodo, end })}
+            />
+          </label>
+          <label>
+            Select Timer{" "}
+            <select className={styles.selectTag} onChange={handleChange}>
+              <option>Select Timer</option>
+              <option value="1">1 Hrs</option>
+              <option value="2">2 Hrs</option>
+              <option value="3">3 Hrs</option>
+              <option value="4">4 Hrs</option>
+              <option value="5">5 Hrs</option>
+              <option value="7">7 Hrs</option>
+              <option value="8">8 Hrs</option>
+              <option value="9">9 Hrs</option>
+              <option value="10">10 Hrs</option>
+            </select>
+          </label>
+          <button type="submit" className={styles.logs}>
+            <ImBoxAdd />
+          </button>
         </form>
       </div>
       <div className={styles.todoTag}>
-        <Calendar
-          localizer={localizer}
-          events={allTodos}
-          startAccessor="start"
-          endAccessor="end"
-          // className={styles.calendarTag}
-          style={{ height: 500, margin: "50px", width: "70%" }}
-        />
-        <div>
-          {allTodos.map((el) => {
-            return (
-              <div style={{ display: "flex" }}>
-                <div className={styles.showData} key={el.id}>
-                  {el.description}
-                </div>
-                <button onClick={() => handleDelete(el.id)}>Delete</button>
-              </div>
-            );
-          })}
+        <div className={styles.calendarTag}>
+          <Calendar
+            localizer={localizer}
+            events={axiosData}
+            startAccessor="start"
+            endAccessor="end"
+            style={{ height: 400 }}
+          />
+        </div>
+
+        <div className={styles.taskTag}>
+          {/* console.log(JSON.stringify(el.start).slice(1, 11)); */}
+          <table className={styles.table}>
+            <tr>
+              <th style={{ width: "15%" }}>Title</th>
+              <th style={{ width: "35%" }}>Desc</th>
+              <th style={{ width: "10%" }}>Start-Date</th>
+              <th style={{ width: "10%" }}>End-Date</th>
+              <th style={{ width: "10%" }}>Timer(in hrs.)</th>
+              <th style={{ width: "10%" }}>Toggle</th>
+              <th style={{ width: "10%" }}>Delete</th>
+            </tr>
+            {axiosData.map((el) => (
+              <tr style={{ fontWeight: "500" }} key={el.id}>
+                <td>{el.title}</td>
+                <td>{el.description}</td>
+                <td>{moment(el.start).utc().format("YYYY-MM-DD")}</td>
+                <td>{moment(el.end).utc().format("YYYY-MM-DD")}</td>
+                <td>{el.timer}</td>
+                <td>
+                  <button onClick={() => handleToggle(el.id, el.toggle)}>
+                    {el.toggle ? (
+                      <BsToggle2On color="green" />
+                    ) : (
+                      <BsToggle2Off color="red" />
+                    )}
+                  </button>
+                </td>
+                <td>
+                  <button onClick={() => handleDelete(el.id)}>
+                    <AiFillDelete />
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </table>
         </div>
       </div>
     </div>

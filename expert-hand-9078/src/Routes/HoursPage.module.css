@@ -1,40 +1,180 @@
-.timeBar {
-  display: flex;
-  justify-content: space-between;
+.head {
+  font-weight: bold;
 }
-.monthBar {
-  border: 1px solid black;
-  padding: 5px;
-  font-size: 12px;
-  align-items: center;
-  background-color: #ebecee;
-}
-
 .formTag {
-  border: 2px solid teal;
   border-radius: 10px;
   padding: 20px;
-  background: rgb(203, 199, 199);
-  opacity: 0.7;
+  /* opacity: 0.7; */
   margin: auto;
-  width: 40%;
+  width: 80%;
+}
+.formTag > form {
+  display: flex;
+  background: rgb(203, 199, 199);
+  border-radius: 10px;
+  padding: 20px;
+  border: 3px solid black;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  justify-content: space-between;
+}
+.formTag > form > label {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
 }
 .inputTag {
-  width: 50%;
+  width: 300px;
+  padding: 5px;
+  border-radius: 5px;
   margin-right: 10px;
   border: 1px solid black;
 }
 .datePickerTag {
-  width: 30%;
+  padding: 5px;
+  border-radius: 5px;
+  width: 100px;
   border: 1px solid black;
+}
+.selectTag {
+  padding: 5px;
+  border-radius: 5px;
+  width: 150px;
+  height: 35px;
+  background-color: whitesmoke;
+}
+.logs {
+  padding: 5px;
 }
 .todoTag {
   display: flex;
+  gap: 3%;
 }
 .calendarTag {
-  width: 70%;
+  border: 2px solid grey;
+  background-color: whitesmoke;
+  height: 410px;
+  width: 35%;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding: 5px;
+  border-radius: 10px;
 }
-.showData {
-  border: 1px solid green;
-  margin-top: 10px;
+.taskTag {
+  width: 55%;
+}
+.table {
+  background-color: whitesmoke;
+  width: 100%;
+  border: 2px solid black;
+  font-size: 15px;
+}
+.table th {
+  border: 2px solid black;
+  background-color: gray;
+}
+.table td {
+  border: 1px solid black;
+}
+.logs {
+  padding: 3px;
+  margin-top: 20px;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 10px;
+  font-weight: bold;
+  border: 1px solid black;
+}
+.logs:hover {
+  background-color: whitesmoke;
+}
+/*
+.table th {
+  border: 1px solid black;
+} */
+
+@media (min-width: 500px) and (max-width: 900px) {
+  .head {
+    font-size: 15px;
+  }
+  .formTag > form > label {
+    font-size: 12px;
+  }
+  .inputTag {
+    width: 100px;
+    padding: 3px;
+  }
+  .datePickerTag {
+    padding: 3px;
+    width: 70px;
+  }
+  .selectTag {
+    padding: 3px;
+    width: 100px;
+    height: 25px;
+  }
+  .calendarTag {
+    width: 45%;
+    padding: 3px;
+  }
+  .taskTag {
+    width: 50%;
+  }
+  .table {
+    font-size: 12px;
+  }
+  .table2 td {
+    font-size: 12px;
+  }
+  .logs {
+    padding: 3px;
+    font-size: 12px;
+  }
+}
+@media (max-width: 499px) {
+  .head {
+    font-size: 12px;
+  }
+  .formTag {
+    width: 95%;
+    padding: 2px;
+    margin: auto;
+  }
+  .formTag > form > label {
+    font-size: 8px;
+  }
+  .inputTag {
+    width: 90%;
+    padding: 3px;
+  }
+  .datePickerTag {
+    width: 70%;
+    padding: 3px;
+  }
+  .selectTag {
+    padding: 2px;
+    width: 75%;
+    height: 20px;
+  }
+  .todoTag {
+    display: block;
+  }
+  .calendarTag {
+    width: 95%;
+    margin-left: 9px;
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+  .taskTag {
+    width: 95%;
+    margin-left: 10px;
+  }
+  .table {
+    font-size: 10px;
+  }
+  .table2 td {
+    font-size: 10px;
+  }
+  .logs {
+    padding: 2px;
+    font-size: 8px;
+  }
 }

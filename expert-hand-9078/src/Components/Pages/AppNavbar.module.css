@@ -32,6 +32,8 @@
 }
 .divv > ul {
   position: absolute;
+  background-color: white;
+  z-index: 1;
   padding: 15px;
   border-radius: 10px;
   top: 20px;
@@ -89,6 +91,8 @@
 .downloadModal {
   position: absolute;
   border-radius: 2px;
+  background-color: white;
+  z-index: 1;
   padding: 15px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   width: 230px;
@@ -110,3 +114,91 @@
   align-items: center;
   gap: 10px;
 }
+@media (min-width: 500px) and (max-width: 900px) {
+  .logoImg {
+    width: 80px;
+    height: 20px;
+  }
+  .mainDiv1 {
+    font-size: 12px;
+    width: 40%;
+  }
+  .mainDiv2 {
+    width: 57%;
+  }
+
+  .downloadIcon {
+    padding: 3px;
+  }
+  .downloadModal {
+    padding: 10px;
+    top: 20px;
+  }
+}
+
+@media (max-width: 499px) {
+  .sourceDiv {
+    width: 90%;
+  }
+  .logoImg {
+    width: 45px;
+    height: 10px;
+  }
+  .mainDiv1 {
+    font-size: 8px;
+    width: 60%;
+  }
+  .mainDiv2 {
+    width: 53%;
+    font-size: 8px;
+  }
+
+  .mainDiv1 > div > ul {
+    font-size: 8px;
+  }
+
+  .divv > ul {
+    padding: 5px;
+    top: 10px;
+    left: -30px;
+    width: 100px;
+  }
+  .reportDrop {
+    line-height: 15px;
+  }
+  .playIcon {
+    display: none;
+  }
+  .plusIcon {
+    display: none;
+  }
+
+  /* maindiv2 */
+
+  .getPro {
+    font-size: 8px;
+    border-radius: 5px;
+    padding: 3px 5px;
+  }
+  .downloadIcon {
+    display: none;
+  }
+  .profileImg {
+    height: 15px;
+    width: 15px;
+  }
+
+  .deleteIcon {
+    border-radius: 5px;
+    padding: 5px;
+    background-color: #fff7e5;
+    font-weight: bold;
+    font-size: 8px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .deleteIcons {
+    display: none;
+  }
+} ;
