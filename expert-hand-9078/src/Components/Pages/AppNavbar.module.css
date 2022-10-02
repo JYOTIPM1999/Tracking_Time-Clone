@@ -1,11 +1,13 @@
 .sourceDiv {
   display: flex;
   justify-content: space-between;
-  width: 99%;
-  position: absolute;
-  top: 10px;
-  margin: auto;
-  /* border: 1px solid black; */
+  width: 100%;
+  position: sticky;
+  background-color: white;
+  top: 0px;
+  padding: 20px 10px;
+  z-index: 1000;
+  /* margin: auto; */
 }
 
 /* .mainDiv1 */
