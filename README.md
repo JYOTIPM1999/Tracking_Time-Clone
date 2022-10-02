@@ -1,6 +1,11 @@
 
 # TrackingTime Clone
 
+We a group of four members made clone of a time tracking website, [TrackingTime](https://trackingtime.co/) as a fifth unit project in our Masai School journey. 
+
+
+# About 
+
 TrackingTime is an intuitive Time Tracking Software which is an intuitive solution to manage time, projects, and employee attendance to improve individual efficiency and team productivity.
 
 [Deployed Link](https://snazzy-nougat-6ca032.netlify.app/)
@@ -17,7 +22,27 @@ TrackingTime is an intuitive Time Tracking Software which is an intuitive soluti
 - Responsive Design
 
 ## Author
-- [Gaurav Mishra](https://github.com/GauravMishra28)
-- [Hurmit Grover](https://github.com/hurmitg)
-- [Harsh Singh](https://github.com/Hars28)
-- [Jyoti Prakash](https://github.com/JYOTIPM1999)
+- [Gaurav Mishra](https://github.com/GauravMishra28) - HomePage, SignUp/Login, Navbar and Footer
+- [Hurmit Grover](https://github.com/hurmitg) - Integration/Blog Page, Backend Data and deployment
+- [Harsh Singh](https://github.com/Hars28) -Backend Data and deployment
+- [Jyoti Prakash](https://github.com/JYOTIPM1999) - Dashboard Page
+
+
+## Tech Stack
+
+- ReactJS
+- JavaScript
+- Chakra UI
+- NodeJS
+- Express
+- Axios
+- MongoDB
+- Firebase
+- SwiperJS
+- Mongoose
+- Heroku
+- Netlify
+
+## Feedback
+
+Have any feedback/suggestions? Lets discuss it on [E-Mail](gauravmemishra@gmail.com)
