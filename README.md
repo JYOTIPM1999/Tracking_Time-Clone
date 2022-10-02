@@ -12,7 +12,15 @@ TrackingTime is an intuitive Time Tracking Software which is an intuitive soluti
 
 ## UI Mockup
 
-![1](https://drive.google.com/file/d/1tVXjlAq5TA8Cny-mLU4fDfBbr6oq6rNs/view?usp=sharing)![2](https://drive.google.com/file/d/1UZJslb-4K2Iwg-kCGXaycD1Ur4z68R1N/view?usp=sharing)![3](https://drive.google.com/file/d/1F5aM5MXNcDK1iQKLoUnswtw94D4MrpQ_/view?usp=sharing)
+<img width="1439" alt="Screenshot 2022-10-02 at 6 52 21 PM" src="https://user-images.githubusercontent.com/101393326/193458514-eb9d9142-b3f7-45bf-9d02-1818ec99cb89.png">
+
+<img width="1439" alt="Screenshot 2022-10-02 at 6 52 38 PM" src="https://user-images.githubusercontent.com/101393326/193458572-288dbf1a-d28a-4275-8ba3-567453ed998d.png">
+
+<img width="1439" alt="Screenshot 2022-10-02 at 6 55 02 PM" src="https://user-images.githubusercontent.com/101393326/193458574-b5ab3e5b-b20b-4496-bf9b-031fa1d33472.png">
+
+
+
+
 
 ## Features
 - Login/Signup using Google ID
