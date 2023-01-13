@@ -49,7 +49,7 @@ TrackingTime is an intuitive Time Tracking Software which is an intuitive soluti
 - SwiperJS
 - Mongoose
 - Heroku
-- Netlify
+- 
 
 ## Feedback
 
