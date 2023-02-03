@@ -1,7 +1,7 @@
 
 # TrackingTime Clone
 
-We a group of four members made clone of a time tracking website, [TrackingTime](https://trackingtime.co/) as a fifth unit project in our Masai School journey. 
+We are a group of four members made clone of a time tracking website, [TrackingTime](https://trackingtime.co/) as a fifth unit project in our Masai School journey. 
 
 
 # About 
